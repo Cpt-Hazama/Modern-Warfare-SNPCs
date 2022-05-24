@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/tfusion/playermodels/mw3/sas_urban_headgear_a_col.vtf"
+	"$bumpmap" "models/tfusion/playermodels/mw3/sas_urban_headgear_a_nml_spc.vtf"
+	
+	"$phong" "1"
+	"$phongalbedotint" "1"
+	"$phongexponenttexture" "models/tfusion/playermodels/mw3/com_half_albedo_tint.vtf"
+	"$phongexponent" "3"
+	"$phongboost" "3"
+	"$phongfresnelranges" "[0.05 0.4 1]"
+	
+	"$rimlight" "1"
+	"$rimlightexponent" "10"
+	"$rimlightboost" "7"
+}

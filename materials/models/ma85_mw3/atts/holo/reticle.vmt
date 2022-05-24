@@ -1,0 +1,8 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\holo\textures\weapon_red_dot_eotech_2_#0"
+	
+	"$additive" 1
+	"$color" "[10 1 1]"
+
+}

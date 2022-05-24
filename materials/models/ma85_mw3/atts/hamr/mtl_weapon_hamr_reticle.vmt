@@ -1,0 +1,5 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\blank"
+	$translucent 1
+}

@@ -1,0 +1,15 @@
+VertexlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\rsass\textures\scope\mtl_weapon_scope_lens_col"
+	$bumpmap 			"models\ma85_mw3\rsass\textures\scope\mtl_weapon_scope_lens_nml"
+
+	$phong                      		1
+	$phongboost                 		1
+	$phongfresnelranges         		"[1 1 1]"
+	$normalmapalphaphongmask    	1
+
+	$envmap                    		 env_cubemap
+	$envmaptint                 		"[1 1 1]"
+	$normalmapalphaenvmapmask   	1
+
+}

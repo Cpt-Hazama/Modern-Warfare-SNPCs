@@ -1,0 +1,6 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\hbs\textures\motiontracker_bg"
+	$basetexturetransform "center .5 .5 scale 1 1 rotate 180 translate 0 0"
+	$translucent 1
+}

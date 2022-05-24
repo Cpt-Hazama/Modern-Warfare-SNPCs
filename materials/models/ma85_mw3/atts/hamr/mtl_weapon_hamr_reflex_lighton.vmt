@@ -1,0 +1,5 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\hamr\textures\weapon_hamr_reflex_lighton_col"
+	$translucent 1
+}

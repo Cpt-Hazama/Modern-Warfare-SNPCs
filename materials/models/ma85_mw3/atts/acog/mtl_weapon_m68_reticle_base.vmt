@@ -1,0 +1,5 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\acog\textures\weapon_m68_reticle_base_col"
+	$translucent 1
+}

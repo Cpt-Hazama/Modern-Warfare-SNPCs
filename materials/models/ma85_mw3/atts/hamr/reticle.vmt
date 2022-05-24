@@ -1,0 +1,7 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\hamr\textures\weapon_hamr_reticle_col"
+	
+	"$additive" 1
+	"$color" "[10 1 1]"
+}

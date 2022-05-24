@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/tfusion/playermodels/mw3/viewmodel_juggernaut_ally_glove_col.vtf"
+	"$bumpmap" "models/tfusion/playermodels/mw3/viewmodel_yuri_europe_glove_nml_spc.vtf"
+	
+	"$phong" "1"
+	"$phongalbedotint" "1"
+	"$phongexponenttexture" "models/tfusion/playermodels/mw3/com_half_albedo_tint.vtf"
+	"$phongexponent" "7"
+	"$phongboost" "4.5"
+	"$phongfresnelranges" "[0.1 0.6 1]"
+	
+	"$rimlight" "1"
+	"$rimlightexponent" "10"
+	"$rimlightboost" "4"
+}

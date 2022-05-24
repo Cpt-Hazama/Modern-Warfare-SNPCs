@@ -1,0 +1,7 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\reflex\textures\weapon_red_dot_reflexsight"
+	
+	"$additive" 1
+	"$color" "[5 1 1]"
+}

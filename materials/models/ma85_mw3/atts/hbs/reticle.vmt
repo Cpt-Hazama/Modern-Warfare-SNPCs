@@ -1,0 +1,7 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\hbs\textures\motiontracker_ping_mp"
+	
+	$additive 1
+	$vertexcolor 1
+}

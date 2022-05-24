@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/tfusion/playermodels/mw3/keegan_africa_alpha_a_col.vtf"
+	"$bumpmap" "models/tfusion/playermodels/mw3/keegan_africa_alpha_a_nml_spc.vtf"
+	
+	"$translucent" "1"
+	
+	"$phong" "1"
+	"$phongexponent" "2"
+	"$phongboost" "5"
+	"$phongfresnelranges" "[0.25 0.7 1]"
+	
+	"$rimlight" "1"
+	"$rimlightexponent" "2"
+	"$rimlightboost" "4"
+}

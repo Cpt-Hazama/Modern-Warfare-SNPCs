@@ -1,0 +1,6 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\mp7\textures\weapon_trinium_site_white"
+	$additive 1
+	
+}

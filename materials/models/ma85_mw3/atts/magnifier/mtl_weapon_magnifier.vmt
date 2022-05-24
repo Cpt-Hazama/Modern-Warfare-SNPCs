@@ -1,0 +1,16 @@
+VertexlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\magnifier\textures\weapon_magnifier_col"
+	$bumpmap 			"models\ma85_mw3\atts\magnifier\textures\weapon_magnifier_nml"
+
+	$phong                      		1
+	$phongboost                 		1
+	$phongexponent 40
+	$phongfresnelranges         		"[1 1 1]"
+	$normalmapalphaphongmask    	1
+
+	$envmap                    		 env_cubemap
+	$envmaptint                 		"[.1 .1 .1]"
+	$normalmapalphaenvmapmask   	1
+
+}

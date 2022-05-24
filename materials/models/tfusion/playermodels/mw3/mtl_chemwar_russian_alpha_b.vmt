@@ -1,0 +1,19 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/tfusion/playermodels/mw3/chemwar_russian_alpha_a_col.vtf"
+	"$bumpmap" "models/tfusion/playermodels/mw3/chemwar_russian_alpha_a_nml_spc.vtf"
+	
+	"$translucent" "1"
+	
+	"$phong" "1"
+	"$phongexponent" "1.2"
+	"$phongboost" "9"
+	"$phongfresnelranges" "[0.01 0.4 1]"
+	
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[7.6 7.1 6.6]"
+	"$envmapfresnel" "0.65"
+	"$normalmapalphaenvmapmask" "1"
+	
+	"$rimlight" "0"
+}

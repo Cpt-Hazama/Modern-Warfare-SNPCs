@@ -1,0 +1,7 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\acog\textures\weapon_m68_reticle_col"
+	
+	"$additive" 1
+	"$color" "[2 .75 .75]"
+}

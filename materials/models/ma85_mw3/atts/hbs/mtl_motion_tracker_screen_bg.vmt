@@ -1,0 +1,19 @@
+UnlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\atts\hbs\textures\motion_tracker_screen_col"
+	
+	$detail "models\ma85_mw3\atts\hbs\textures\motiontracker_sweep#0"
+	$detailscale 1
+	$detailblendfactor 1
+	$detailblendmode 1
+
+Proxies
+ {
+  TextureScroll
+  {
+   texturescrollvar "$detailtexturetransform"
+   texturescrollrate "1"
+   texturescrollangle "-90"
+  }
+}
+}

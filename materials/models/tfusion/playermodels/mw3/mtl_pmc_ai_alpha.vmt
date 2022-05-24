@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/tfusion/playermodels/mw3/pmc_ai_alpha.vtf"
+	
+	"$translucent" "1"
+}

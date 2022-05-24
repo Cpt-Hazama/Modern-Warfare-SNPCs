@@ -1,0 +1,21 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/tfusion/playermodels/mw3/iw5_ghillie_urban_col.vtf"
+	"$bumpmap" "models/tfusion/playermodels/mw3/iw5_ghillie_urban_col_nmlx.vtf"
+	
+	"$alphatest" "1"
+	"$AlphaTestReference" "0.3"
+	"$AllowAlphaToCoverage" "1"
+	"$nocull" "1"
+	
+	"$phong" "1"
+	"$phongalbedotint" "1"
+	"$phongexponenttexture" "models/tfusion/playermodels/mw3/com_half_albedo_tint.vtf"
+	"$phongexponent" "2"
+	"$phongboost" "0.7"
+	"$phongfresnelranges" "[0.001 0.01 0.15]"
+	
+	"$rimlight" "1"
+	"$rimlightexponent" "3"
+	"$rimlightboost" "0.15"
+}
