@@ -38,6 +38,7 @@ SWEP.Primary.Damage				= 1
 SWEP.Primary.Force				= 1
 SWEP.Primary.ClipSize			= 1
 SWEP.Primary.Ammo				= "SMG1"
+SWEP.Primary.TracerType 		= "VJ_MW_Tracer"
 
 SWEP.PrimaryEffects_MuzzleFlash = true
 SWEP.PrimaryEffects_MuzzleAttachment = 1
@@ -46,3 +47,23 @@ SWEP.PrimaryEffects_MuzzleParticles = {"muzzleflash_pistol"}
 SWEP.PrimaryEffects_SpawnShells = true
 SWEP.PrimaryEffects_ShellAttachment = 2
 SWEP.PrimaryEffects_ShellType = "VJ_Weapon_RifleShell1"
+---------------------------------------------------------------------------------------------------------------------------------------------
+function SWEP:GetWeaponCustomPosition(owner)
+    local origin,angles = self.WorldModel_CustomPositionOrigin,self.WorldModel_CustomPositionAngle
+    if owner.MW_Juggernaut && self.WorldModel_CustomPositionOrigin_Juggernaut && self.WorldModel_CustomPositionAngle_Juggernaut then
+        origin,angles = self.WorldModel_CustomPositionOrigin_Juggernaut,self.WorldModel_CustomPositionAngle_Juggernaut
+    end
+
+	if owner:LookupBone(self.WorldModel_CustomPositionBone) == nil then return nil end
+
+	local pos, ang = owner:GetBonePosition(owner:LookupBone(self.WorldModel_CustomPositionBone))
+	ang:RotateAroundAxis(ang:Right(), angles.x)
+	ang:RotateAroundAxis(ang:Up(), angles.y)
+	ang:RotateAroundAxis(ang:Forward(), angles.z)
+
+	pos = pos + origin.x * ang:Right()
+	pos = pos + origin.y * ang:Forward()
+	pos = pos + origin.z * ang:Up()
+
+	return {pos = pos, ang = ang}
+end

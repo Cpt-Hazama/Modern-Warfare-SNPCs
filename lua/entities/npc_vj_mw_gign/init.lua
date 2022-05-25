@@ -13,7 +13,7 @@ ENT.Model = {
 	"models/tfusion/playermodels/mw3/mp_gign_e.mdl"
 }
 
-ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY"}
+ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY","CLASS_FRENCH"}
 ENT.FriendsWithAllPlayerAllies = true
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit()

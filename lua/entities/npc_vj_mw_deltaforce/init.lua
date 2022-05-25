@@ -12,7 +12,7 @@ ENT.Model = {
 	"models/tfusion/playermodels/mw3/mp_delta_elite_d.mdl"
 }
 
-ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY"}
+ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY","CLASS_UNITED_STATES"}
 ENT.FriendsWithAllPlayerAllies = true
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit()
