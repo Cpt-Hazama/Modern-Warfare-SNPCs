@@ -13,7 +13,7 @@ SWEP.MadeForNPCsOnly 			= true
 
 SWEP.WorldModel_UseCustomPosition = false
 SWEP.WorldModel_CustomPositionAngle = Vector(-10,90,180)
-SWEP.WorldModel_CustomPositionOrigin = Vector(-15,-1,4)
+SWEP.WorldModel_CustomPositionOrigin = Vector(-15,-1,3.2)
 
 SWEP.NPC_TimeUntilFire = 0
 SWEP.NPC_NextPrimaryFire = 0.1
@@ -40,9 +40,19 @@ SWEP.Primary.ClipSize			= 1
 SWEP.Primary.Ammo				= "SMG1"
 SWEP.Primary.TracerType 		= "VJ_MW_Tracer"
 
+SWEP.Primary.SoundLevel = 83
+SWEP.Primary.SoundPitch	= VJ_Set(92, 102)
+
 SWEP.PrimaryEffects_MuzzleFlash = true
 SWEP.PrimaryEffects_MuzzleAttachment = 1
 SWEP.PrimaryEffects_MuzzleParticles = {"muzzleflash_pistol"}
+-- "muzzleflash_pistol" -- Low Calibar
+-- "muzzleflash_1" -- Medium/Large Calibar
+-- "muzzleflash_4" -- Medium Calibar
+-- "muzzleflash_g3" -- High Calibar
+-- "muzzleflash_6" -- Snipers
+-- "muzzleflash_5" -- Minigun
+-- "muzzleflash_shotgun" -- Shotgun
 
 SWEP.PrimaryEffects_SpawnShells = true
 SWEP.PrimaryEffects_ShellAttachment = 2

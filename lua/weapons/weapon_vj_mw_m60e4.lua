@@ -17,17 +17,17 @@ SWEP.MW_JuggernautOverride      = true
 
 SWEP.WorldModel_UseCustomPosition = true
 SWEP.WorldModel_CustomPositionAngle = Vector(-10,90,180)
-SWEP.WorldModel_CustomPositionOrigin = Vector(-15,-1,4)
+SWEP.WorldModel_CustomPositionOrigin = Vector(-14,-1,3.2)
 SWEP.WorldModel_CustomPositionAngle_Juggernaut = Vector(0,100,180)
 SWEP.WorldModel_CustomPositionOrigin_Juggernaut = Vector(-15,-2,3.7)
 
 SWEP.NPC_NextPrimaryFire = 0.08
 SWEP.NPC_CustomSpread = 2.25
 
-SWEP.Primary.Damage				= 5
+SWEP.Primary.Damage				= 7
 SWEP.Primary.Force				= 2
 SWEP.Primary.ClipSize			= 200
 SWEP.Primary.Sound				= {"cpthazama/mw/weapons/weapons/m60e4/fire.wav"}
-SWEP.Primary.DistantSound		= {"cpthazama/mw/weapons/silencer/lmg.wav"}
+SWEP.Primary.DistantSound		= {"cpthazama/mw/weapons/dist1.wav","cpthazama/mw/weapons/dist2.wav","cpthazama/mw/weapons/dist3.wav","cpthazama/mw/weapons/dist4.wav"}
 
 SWEP.PrimaryEffects_MuzzleParticles = {"muzzleflash_5"}

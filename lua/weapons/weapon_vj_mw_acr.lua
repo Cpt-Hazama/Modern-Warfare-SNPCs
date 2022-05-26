@@ -25,6 +25,6 @@ SWEP.Primary.Damage				= 5
 SWEP.Primary.Force				= 2
 SWEP.Primary.ClipSize			= 30
 SWEP.Primary.Sound				= {"cpthazama/mw/weapons/weapons/acr/fire.wav"}
-SWEP.Primary.DistantSound		= {"cpthazama/mw/weapons/silencer/ar.wav"}
+SWEP.Primary.DistantSound		= {"cpthazama/mw/weapons/dist1.wav","cpthazama/mw/weapons/dist2.wav","cpthazama/mw/weapons/dist3.wav","cpthazama/mw/weapons/dist4.wav"}
 
 SWEP.PrimaryEffects_MuzzleParticles = {"muzzleflash_4"}

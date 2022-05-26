@@ -18,11 +18,12 @@ ENT.AnimTbl_MeleeAttack = {"vjseq_seq_meleeattack01"}
 
 -- ENT.WeaponInventory_AntiArmor = true
 -- ENT.WeaponInventory_AntiArmorList = {"weapon_vj_rpg"}
--- ENT.WeaponInventory_Melee = true
--- ENT.WeaponInventory_MeleeList = {"weapon_vj_crowbar"}
+ENT.WeaponInventory_Melee = false
+ENT.WeaponInventory_MeleeList = {"weapon_vj_mw_knife"}
 
 ENT.HasGrenadeAttack = true
-ENT.AnimTbl_RangeAttack = {"vjges_gesture_item_throw"}
+ENT.GrenadeAttackModel = {"models/weapons/w_eq_fraggrenade.mdl"}
+ENT.AnimTbl_GrenadeAttack = {"vjges_gesture_item_throw"}
 
 ENT.AnimTbl_Medic_GiveHealth = {"vjges_gesture_item_drop"}
 
@@ -50,50 +51,11 @@ ENT.DeathAnimationChance = 2
 ENT.FootStepTimeRun = 0.3
 ENT.FootStepTimeWalk = 0.5
 
-ENT.SoundTbl_FootStep = {"npc/footsteps/hardboot_generic1.wav","npc/footsteps/hardboot_generic2.wav","npc/footsteps/hardboot_generic3.wav","npc/footsteps/hardboot_generic4.wav","npc/footsteps/hardboot_generic5.wav","npc/footsteps/hardboot_generic6.wav","npc/footsteps/hardboot_generic8.wav"}
-
-ENT.Loadouts = {
-	[VJ_MW_LOADOUT_ASSAULT] = {
-		Primary = {
-			"weapon_vj_mw_acr"
-		},
-		Secondary = {
-			"weapon_vj_mw_p99"
-		},
-	},
-	[VJ_MW_LOADOUT_LMG] = {
-		Primary = {
-			"weapon_vj_mw_mg36"
-		},
-		Secondary = {
-			"weapon_vj_mw_p99"
-		},
-	},
-	[VJ_MW_LOADOUT_SHOTGUN] = {
-		Primary = {
-			"weapon_vj_mw_aa12"
-		},
-		Secondary = {
-			"weapon_vj_mw_p99"
-		},
-	},
-	[VJ_MW_LOADOUT_SMG] = {
-		Primary = {
-			"weapon_vj_mw_mp9"
-		},
-		Secondary = {
-			"weapon_vj_mw_p99"
-		},
-	},
-	[VJ_MW_LOADOUT_SNIPER] = {
-		Primary = {
-			"weapon_vj_mw_mk14"
-		},
-		Secondary = {
-			"weapon_vj_mw_p99"
-		},
-	},
-}
+ENT.SoundTbl_FootStep = false
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:GetSightDirection()
+	return self:GetAttachment(self:LookupAttachment("eyes")).Ang:Forward()
+end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnInitialize()
 	if self.OnInit then
@@ -124,6 +86,12 @@ function ENT:GiveWeapons(loadID)
 	local loadout = self.Loadouts[loadID]
 	self.Secondary = self:Give(VJ_PICK(loadout.Secondary))
 	self.Primary = self:Give(VJ_PICK(loadout.Primary))
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:CustomOnGrenadeAttack_OnThrow(grEnt)
+	if grEnt:GetClass() == "obj_vj_grenade" then
+		util.SpriteTrail(grEnt,0,Color(255,255,255),false,5,0,1.5,1 /(10 +1) *0.5,"vj_mw/sprites/smoke.vmt")
+	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.FootSteps = {
@@ -269,5 +237,30 @@ function ENT:CustomOnFootStepSound()
 	end
 	if self:WaterLevel() > 0 && self:WaterLevel() < 3 then
 		VJ_EmitSound(self,"player/footsteps/wade" .. math.random(1,8) .. ".wav",self.FootStepSoundLevel,self:VJ_DecideSoundPitch(self.FootStepPitch1,self.FootStepPitch2))
+	end
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:FootStepSoundCode(CustomTbl)
+	if self.HasSounds == false or self.HasFootStepSound == false or self.MovementType == VJ_MOVETYPE_STATIONARY then return end
+	if self:IsOnGround() && self:GetGroundEntity() != NULL then
+		if self.DisableFootStepSoundTimer == true then
+			self:CustomOnFootStepSound()
+			if self.HasWorldShakeOnMove == true then util.ScreenShake(self:GetPos(), self.WorldShakeOnMoveAmplitude, self.WorldShakeOnMoveFrequency, self.WorldShakeOnMoveDuration, self.WorldShakeOnMoveRadius) end
+			return
+		elseif self:IsMoving() && CurTime() > self.FootStepT && self:GetInternalVariable("m_flMoveWaitFinished") <= 0 then
+			self:CustomOnFootStepSound()
+			local curSched = self.CurrentSchedule
+			if self.DisableFootStepOnRun == false && ((VJ_HasValue(self.AnimTbl_Run,self:GetMovementActivity())) or (curSched != nil  && curSched.MoveType == 1)) /*(VJ_HasValue(VJ_RunActivites,self:GetMovementActivity()) or VJ_HasValue(self.CustomRunActivites,self:GetMovementActivity()))*/ then
+				self:CustomOnFootStepSound_Run()
+				if self.HasWorldShakeOnMove == true then util.ScreenShake(self:GetPos(), self.WorldShakeOnMoveAmplitude, self.WorldShakeOnMoveFrequency, self.WorldShakeOnMoveDuration, self.WorldShakeOnMoveRadius) end
+				self.FootStepT = CurTime() + self.FootStepTimeRun
+				return
+			elseif self.DisableFootStepOnWalk == false && (VJ_HasValue(self.AnimTbl_Walk,self:GetMovementActivity()) or (curSched != nil  && curSched.MoveType == 0)) /*(VJ_HasValue(VJ_WalkActivites,self:GetMovementActivity()) or VJ_HasValue(self.CustomWalkActivites,self:GetMovementActivity()))*/ then
+				self:CustomOnFootStepSound_Walk()
+				if self.HasWorldShakeOnMove == true then util.ScreenShake(self:GetPos(), self.WorldShakeOnMoveAmplitude, self.WorldShakeOnMoveFrequency, self.WorldShakeOnMoveDuration, self.WorldShakeOnMoveRadius) end
+				self.FootStepT = CurTime() + self.FootStepTimeWalk
+				return
+			end
+		end
 	end
 end

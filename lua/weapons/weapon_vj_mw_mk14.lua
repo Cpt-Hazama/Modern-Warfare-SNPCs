@@ -16,15 +16,16 @@ SWEP.HoldType 					= "ar2"
 
 SWEP.WorldModel_UseCustomPosition = true
 SWEP.WorldModel_CustomPositionAngle = Vector(-10,90,180)
-SWEP.WorldModel_CustomPositionOrigin = Vector(-15,-1,4)
+SWEP.WorldModel_CustomPositionOrigin = Vector(-15,-1,3.4)
 
-SWEP.NPC_NextPrimaryFire = 1.5
+SWEP.NPC_NextPrimaryFire = 0.75
 SWEP.NPC_CustomSpread = 0.75
+SWEP.NPC_FiringDistanceScale = 1.5
 
-SWEP.Primary.Damage				= 5
+SWEP.Primary.Damage				= 12
 SWEP.Primary.Force				= 2
 SWEP.Primary.ClipSize			= 20
 SWEP.Primary.Sound				= {"cpthazama/mw/weapons/weapons/mk14/fire.wav"}
-SWEP.Primary.DistantSound		= {"cpthazama/mw/weapons/silencer/ar.wav"}
+SWEP.Primary.DistantSound		= {"cpthazama/mw/weapons/dist1.wav","cpthazama/mw/weapons/dist2.wav","cpthazama/mw/weapons/dist3.wav","cpthazama/mw/weapons/dist4.wav"}
 
-SWEP.PrimaryEffects_MuzzleParticles = {"muzzleflash_4"}
+SWEP.PrimaryEffects_MuzzleParticles = {"muzzleflash_6"}

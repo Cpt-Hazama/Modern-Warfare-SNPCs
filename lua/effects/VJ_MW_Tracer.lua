@@ -1,6 +1,6 @@
 local Tracer = Material("trails/smoke")
 local Tracer2  = Material("effects/tracer_mw")
-local Tracer3  = Material("particle/warp1_warp")
+local Tracer3  = Material("sprites/heatwave")
 local Width = 3.65
 local Width2 = 12
 local Width3 = 4
