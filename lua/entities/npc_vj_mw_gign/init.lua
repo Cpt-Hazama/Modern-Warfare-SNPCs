@@ -15,6 +15,66 @@ ENT.Model = {
 
 ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY","CLASS_FRENCH"}
 ENT.FriendsWithAllPlayerAllies = true
+
+ENT.WeaponInventory_AntiArmor = true
+ENT.WeaponInventory_AntiArmorList = {"weapon_vj_mw_smaw","weapon_vj_mw_m320"}
+
+ENT.Loadouts = {
+	[VJ_MW_LOADOUT_ASSAULT] = {
+		Primary = {
+			"weapon_vj_mw_g36",
+			"weapon_vj_mw_pp90m1",
+			"weapon_vj_mw_m4a1",
+		},
+		Secondary = {
+			"weapon_vj_mw_44_magnum",
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_g18",
+		},
+	},
+	[VJ_MW_LOADOUT_LMG] = {
+		Primary = {
+			"weapon_vj_mw_mk46",
+		},
+		Secondary = {
+			"weapon_vj_mw_44_magnum",
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_g18",
+		},
+	},
+	[VJ_MW_LOADOUT_SHOTGUN] = {
+		Primary = {
+			"weapon_vj_mw_aa12",
+			"weapon_vj_mw_ksg",
+		},
+		Secondary = {
+			"weapon_vj_mw_44_magnum",
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_g18",
+		},
+	},
+	[VJ_MW_LOADOUT_SMG] = {
+		Primary = {
+			"weapon_vj_mw_mp5",
+			"weapon_vj_mw_ak74u",
+		},
+		Secondary = {
+			"weapon_vj_mw_44_magnum",
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_g18",
+		},
+	},
+	[VJ_MW_LOADOUT_SNIPER] = {
+		Primary = {
+			"weapon_vj_mw_mk14",
+		},
+		Secondary = {
+			"weapon_vj_mw_44_magnum",
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_g18",
+		},
+	},
+}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit()
 	self:SetLoadout(math.random(1,5))

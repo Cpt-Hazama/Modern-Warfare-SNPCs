@@ -24,6 +24,13 @@ if VJExists == true then
 	VJ_MW_LOADOUT_SHOTGUN = 3
 	VJ_MW_LOADOUT_SMG = 4
 	VJ_MW_LOADOUT_SNIPER = 5
+	VJ_MW_LOADOUT_TRANS = {
+		[VJ_MW_LOADOUT_ASSAULT] = "assault",
+		[VJ_MW_LOADOUT_LMG] = "lmg",
+		[VJ_MW_LOADOUT_SHOTGUN] = "shotgun",
+		[VJ_MW_LOADOUT_SMG] = "smg",
+		[VJ_MW_LOADOUT_SNIPER] = "sniper",
+	}
 
 	local vCat = Name
 	VJ.AddCategoryInfo(vCat,{Icon = "vj_icons/mw.png"})
@@ -52,7 +59,7 @@ if VJExists == true then
 	AddWeapon("FiveSeven","weapon_vj_mw_fiveseven")
 	AddWeapon("FMG9","weapon_vj_mw_fmg9")
 	AddWeapon("G18","weapon_vj_mw_g18")
-	AddWeapon("G36","weapon_vj_mw_g36")
+	AddWeapon("G36C","weapon_vj_mw_g36")
 	AddWeapon("Knife","weapon_vj_mw_knife")
 	AddWeapon("KSG","weapon_vj_mw_ksg")
 	AddWeapon("L96A1","weapon_vj_mw_l96a1")

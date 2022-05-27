@@ -21,6 +21,82 @@ ENT.Model = {
 }
 
 ENT.VJ_NPC_Class = {"CLASS_RUSSIAN"}
+
+ENT.WeaponInventory_AntiArmor = true
+ENT.WeaponInventory_AntiArmorList = {"weapon_vj_mw_rpg","weapon_vj_mw_smaw"}
+
+ENT.Loadouts = {
+	[VJ_MW_LOADOUT_ASSAULT] = {
+		Primary = {
+			"weapon_vj_mw_ak47",
+			"weapon_vj_mw_g36",
+			"weapon_vj_mw_acr",
+			"weapon_vj_mw_fad",
+		},
+		Secondary = {
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_usp45",
+			"weapon_vj_mw_p99",
+			"weapon_vj_mw_mp412",
+			"weapon_vj_mw_g18",
+		},
+	},
+	[VJ_MW_LOADOUT_LMG] = {
+		Primary = {
+			"weapon_vj_mw_pecheneg",
+		},
+		Secondary = {
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_usp45",
+			"weapon_vj_mw_p99",
+			"weapon_vj_mw_mp412",
+			"weapon_vj_mw_g18",
+		},
+	},
+	[VJ_MW_LOADOUT_SHOTGUN] = {
+		Primary = {
+			"weapon_vj_mw_spas12",
+			"weapon_vj_mw_striker",
+			"weapon_vj_mw_m1887",
+		},
+		Secondary = {
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_usp45",
+			"weapon_vj_mw_p99",
+			"weapon_vj_mw_mp412",
+			"weapon_vj_mw_g18",
+		},
+	},
+	[VJ_MW_LOADOUT_SMG] = {
+		Primary = {
+			"weapon_vj_mw_ak74u",
+			"weapon_vj_mw_pp90m1",
+			"weapon_vj_mw_mp5",
+			"weapon_vj_mw_p90",
+		},
+		Secondary = {
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_usp45",
+			"weapon_vj_mw_p99",
+			"weapon_vj_mw_mp412",
+			"weapon_vj_mw_g18",
+		},
+	},
+	[VJ_MW_LOADOUT_SNIPER] = {
+		Primary = {
+			"weapon_vj_mw_dragunov",
+			"weapon_vj_mw_as50",
+			"weapon_vj_mw_rsass",
+		},
+		Secondary = {
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_usp45",
+			"weapon_vj_mw_p99",
+			"weapon_vj_mw_mp412",
+			"weapon_vj_mw_g18",
+		},
+	},
+}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit()
 	local mdl = self:GetModel()

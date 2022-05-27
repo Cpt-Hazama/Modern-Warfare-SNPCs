@@ -16,10 +16,13 @@ function ENT:OnInit()
 	self.Loadouts = {
 		[VJ_MW_LOADOUT_LMG] = {
 			Primary = {
-				"weapon_vj_mw_m60e4"
+				"weapon_vj_mw_m60e4",
+				"weapon_vj_mw_mk46"
 			},
 			Secondary = {
-				"weapon_vj_mw_p99"
+				"weapon_vj_mw_spas12",
+				"weapon_vj_mw_44_magnum",
+				"weapon_vj_mw_desert_eagle"
 			},
 		}
 	}

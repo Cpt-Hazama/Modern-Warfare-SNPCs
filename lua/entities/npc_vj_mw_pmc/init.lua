@@ -16,6 +16,69 @@ ENT.Model = {
 ENT.SniperModel = "models/tfusion/playermodels/mw3/mp_ally_pmc_sniper.mdl"
 
 ENT.VJ_NPC_Class = {"CLASS_PMC"}
+
+ENT.WeaponInventory_AntiArmor = true
+ENT.WeaponInventory_AntiArmorList = {"weapon_vj_mw_smaw","weapon_vj_mw_xm25"}
+
+ENT.Loadouts = {
+	[VJ_MW_LOADOUT_ASSAULT] = {
+		Primary = {
+			"weapon_vj_mw_ak47",
+			"weapon_vj_mw_g36",
+			"weapon_vj_mw_m4a1",
+		},
+		Secondary = {
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_usp45",
+			"weapon_vj_mw_desert_eagle",
+		},
+	},
+	[VJ_MW_LOADOUT_LMG] = {
+		Primary = {
+			"weapon_vj_mw_pecheneg",
+			"weapon_vj_mw_mg36",
+		},
+		Secondary = {
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_usp45",
+			"weapon_vj_mw_desert_eagle",
+		},
+	},
+	[VJ_MW_LOADOUT_SHOTGUN] = {
+		Primary = {
+			"weapon_vj_mw_aa12",
+			"weapon_vj_mw_spas12",
+		},
+		Secondary = {
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_usp45",
+			"weapon_vj_mw_desert_eagle",
+		},
+	},
+	[VJ_MW_LOADOUT_SMG] = {
+		Primary = {
+			"weapon_vj_mw_pp90m1",
+			"weapon_vj_mw_mp5",
+		},
+		Secondary = {
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_usp45",
+			"weapon_vj_mw_desert_eagle",
+		},
+	},
+	[VJ_MW_LOADOUT_SNIPER] = {
+		Primary = {
+			"weapon_vj_mw_mk14",
+			"weapon_vj_mw_msr",
+			"weapon_vj_mw_l96a1",
+		},
+		Secondary = {
+			"weapon_vj_mw_fiveseven",
+			"weapon_vj_mw_usp45",
+			"weapon_vj_mw_desert_eagle",
+		},
+	},
+}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit()
 	self:SetLoadout(math.random(1,5))

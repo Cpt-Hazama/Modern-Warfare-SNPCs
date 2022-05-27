@@ -13,10 +13,13 @@ SWEP.AdminSpawnable				= false
 SWEP.ViewModel					= "models/weapons/cstrike/c_rif_ak47.mdl"
 SWEP.WorldModel					= "models/ma85_mw3/sa80/worldmodel.mdl"
 SWEP.HoldType 					= "ar2"
+SWEP.MW_JuggernautOverride      = true
 
 SWEP.WorldModel_UseCustomPosition = true
 SWEP.WorldModel_CustomPositionAngle = Vector(-10,90,180)
 SWEP.WorldModel_CustomPositionOrigin = Vector(-14,-1,3.2)
+SWEP.WorldModel_CustomPositionAngle_Juggernaut = Vector(0,90,180)
+SWEP.WorldModel_CustomPositionOrigin_Juggernaut = Vector(-14,-1,3.2)
 
 SWEP.NPC_NextPrimaryFire = 0.08
 SWEP.NPC_CustomSpread = 2.25

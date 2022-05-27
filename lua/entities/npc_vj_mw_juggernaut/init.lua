@@ -17,23 +17,30 @@ ENT.MeleeAttackDamage = 20
 
 ENT.MoveOrHideOnDamageByEnemy = false
 ENT.HasWeaponBackAway = false
-ENT.MoveRandomlyWhenShooting = false
+-- ENT.MoveRandomlyWhenShooting = false
 ENT.WaitForEnemyToComeOut = false
 ENT.HasGrenadeAttack = false
 
 ENT.FlinchChance = 15
+
+ENT.WeaponInventory_AntiArmor = true
+ENT.WeaponInventory_AntiArmorList = {"weapon_vj_mw_m320"}
+
+ENT.Loadouts = {
+	[VJ_MW_LOADOUT_LMG] = {
+		Primary = {
+			"weapon_vj_mw_pecheneg"
+		},
+		Secondary = {
+			"weapon_vj_mw_ak47",
+			"weapon_vj_mw_striker",
+			"weapon_vj_mw_mp412",
+			"weapon_vj_mw_44_magnum"
+		},
+	}
+}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit()
-	self.Loadouts = {
-		[VJ_MW_LOADOUT_LMG] = {
-			Primary = {
-				"weapon_vj_mw_m60e4"
-			},
-			Secondary = {
-				"weapon_vj_mw_p99"
-			},
-		}
-	}
 	self:GiveWeapons(VJ_MW_LOADOUT_LMG)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -73,16 +80,29 @@ function ENT:CustomOnThink_AIEnabled()
 	local ent = self:GetEnemy()
 	if IsValid(ent) && self.LastEnemyVisible then
 		local dist = self.NearestPointToEnemyDistance
-		if dist > (self.Weapon_FiringDistanceFar *0.135) then
+		if dist > (self.Weapon_FiringDistanceFar *0.135) && CurTime() > (self.PauseChargeT or 0) then
+			-- self.MoveRandomlyWhenShooting = false
 			self:SetLastPosition(ent:GetPos())
 			self:VJ_TASK_GOTO_LASTPOS("TASK_RUN_PATH",function(x) x:EngTask("TASK_FACE_ENEMY", 0) x.CanShootWhenMoving = true x.ConstantlyFaceEnemy = true end)
 		else
 			if self:IsMoving() && CurTime() > (self.NextStopMovementT or 0) then
 				self:StopMoving()
+				-- self.MoveRandomlyWhenShooting = true
 				self.NextStopMovementT = CurTime() +math.Rand(1,3)
 			end
 		end
 	end
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:CustomOnMoveRandomlyWhenShooting()
+	local dist = self.NearestPointToEnemyDistance
+	if dist <= (self.Weapon_FiringDistanceFar *0.135) then
+		local t = CurTime() +math.Rand(3,5)
+		self.PauseChargeT = t
+		self.NextStopMovementT = t
+		return true
+	end
+	return false
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnTakeDamage_BeforeDamage(dmginfo, hitgroup)

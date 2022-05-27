@@ -45,7 +45,7 @@ ENT.HitGroupFlinching_Values = {
 }
 
 ENT.HasDeathAnimation = true
-ENT.AnimTbl_Death = {"death_02","death_03","death_04"}
+ENT.AnimTbl_Death = {"vjseq_death_02","vjseq_death_03","vjseq_death_04"}
 ENT.DeathAnimationChance = 2
 
 ENT.FootStepTimeRun = 0.3
@@ -67,13 +67,29 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:SetLoadout(loadID)
 	if self.Loadouts[loadID] then
+		local isSniper = false
 		if loadID == 5 && self.SniperModel then
+			isSniper = true
 			local cBounds = select(2,self:GetCollisionBounds())
 			self:SetModel(VJ_PICK(self.SniperModel))
 			self:SetCollisionBounds(Vector(cBounds.x,cBounds.y,cBounds.z),Vector(-cBounds.x,-cBounds.y,0))
 		end
 		self:GiveWeapons(loadID)
-		self:SetBodygroup(1,loadID -1)
+		if !isSniper then
+			local usableBG = {}
+			for _,v in pairs(self:GetBodyGroups()[2]) do
+				if istable(v) then
+					for i,a in pairs(v) do
+						if string.find(a,VJ_MW_LOADOUT_TRANS[loadID]) then
+							table.insert(usableBG,i)
+							-- print("Added (1," .. i .. ") - " .. a)
+						end
+					end
+				end
+			end
+			self:SetBodygroup(1,VJ_PICK(usableBG) or 0)
+		end
+		self:SetSkin(math.random(1,2))
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -92,6 +108,10 @@ function ENT:CustomOnGrenadeAttack_OnThrow(grEnt)
 	if grEnt:GetClass() == "obj_vj_grenade" then
 		util.SpriteTrail(grEnt,0,Color(255,255,255),false,5,0,1.5,1 /(10 +1) *0.5,"vj_mw/sprites/smoke.vmt")
 	end
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:CustomDeathAnimationCode(dmginfo, hitgroup)
+	self.DeathAnimationDecreaseLengthAmount = math.Rand(0,0.325)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.FootSteps = {
