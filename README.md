@@ -1,4 +1,4 @@
-# Modern Warfare SNPCs
+# Modern Warfare SNPCs (Beta)
 Requires VJ Base -Revamp- branch until VJ Base updates
 
 # Showcase
