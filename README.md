@@ -1,5 +1,9 @@
 # Modern Warfare SNPCs (Beta)
-Requires VJ Base -Revamp- branch until VJ Base updates
+
+# Requirements
+[VJ Base -Revamp- branch until VJ Base updates)](https://github.com/DrVrej/VJ-Base/tree/revamp)
+
+[[xdR] CSGO Animations (Optional, for best experience)](https://steamcommunity.com/sharedfiles/filedetails/?id=2261825706&searchtext=xdr)
 
 # Showcase
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/oLDRAIcd5q0/0.jpg)](https://youtu.be/oLDRAIcd5q0 "Modern Warfare SNPCs Random Testing (Beta)")
