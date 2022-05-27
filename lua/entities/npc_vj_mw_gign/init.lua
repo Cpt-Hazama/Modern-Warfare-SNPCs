@@ -75,6 +75,67 @@ ENT.Loadouts = {
 		},
 	},
 }
+
+ENT.SoundTbl_OnGrenadeSight = {
+	"cpthazama/mw/npc/sas/grenade1.wav",
+	"cpthazama/mw/npc/sas/grenade2.wav",
+	"cpthazama/mw/npc/sas/grenade3.wav",
+	"cpthazama/mw/npc/sas/grenade4.wav",
+	"cpthazama/mw/npc/sas/grenade5.wav",
+}
+ENT.SoundTbl_Death = {
+	"cpthazama/mw/npc/sas/death1.wav",
+	"cpthazama/mw/npc/sas/death2.wav",
+	"cpthazama/mw/npc/sas/death3.wav",
+	"cpthazama/mw/npc/sas/death4.wav",
+	"cpthazama/mw/npc/sas/death5.wav",
+	"cpthazama/mw/npc/sas/death6.wav",
+}
+ENT.SoundTbl_Suppressing = {
+	"cpthazama/mw/npc/sas/suppressing1.wav",
+	"cpthazama/mw/npc/sas/suppressing10.wav",
+	"cpthazama/mw/npc/sas/suppressing11.wav",
+	"cpthazama/mw/npc/sas/suppressing12.wav",
+	"cpthazama/mw/npc/sas/suppressing2.wav",
+	"cpthazama/mw/npc/sas/suppressing3.wav",
+	"cpthazama/mw/npc/sas/suppressing4.wav",
+	"cpthazama/mw/npc/sas/suppressing5.wav",
+	"cpthazama/mw/npc/sas/suppressing6.wav",
+	"cpthazama/mw/npc/sas/suppressing7.wav",
+	"cpthazama/mw/npc/sas/suppressing8.wav",
+	"cpthazama/mw/npc/sas/suppressing9.wav",
+}
+ENT.SoundTbl_Alert = {
+	"cpthazama/mw/npc/sas/alert1.wav",
+	"cpthazama/mw/npc/sas/alert2.wav",
+	"cpthazama/mw/npc/sas/alert3.wav",
+	"cpthazama/mw/npc/sas/alert4.wav",
+	"cpthazama/mw/npc/sas/alert5.wav",
+	"cpthazama/mw/npc/sas/alert6.wav",
+}
+ENT.SoundTbl_DamageByPlayer = {
+	"cpthazama/mw/npc/sas/friendlyfire1.wav",
+	"cpthazama/mw/npc/sas/friendlyfire2.wav",
+	"cpthazama/mw/npc/sas/friendlyfire3.wav",
+	"cpthazama/mw/npc/sas/friendlyfire4.wav",
+}
+ENT.SoundTbl_Pain = {
+	"cpthazama/mw/npc/sas/pain1.wav",
+	"cpthazama/mw/npc/sas/pain2.wav",
+	"cpthazama/mw/npc/sas/pain3.wav",
+	"cpthazama/mw/npc/sas/pain4.wav",
+}
+ENT.SoundTbl_CombatIdle = {
+	"cpthazama/mw/npc/sas/attack1.wav",
+	"cpthazama/mw/npc/sas/attack2.wav",
+	"cpthazama/mw/npc/sas/attack3.wav",
+	"cpthazama/mw/npc/sas/attack4.wav",
+	"cpthazama/mw/npc/sas/attack5.wav",
+	"cpthazama/mw/npc/sas/attack6.wav",
+	"cpthazama/mw/npc/sas/attack7.wav",
+	"cpthazama/mw/npc/sas/attack8.wav",
+	"cpthazama/mw/npc/sas/attack9.wav",
+}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit()
 	self:SetLoadout(math.random(1,5))

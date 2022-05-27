@@ -106,6 +106,116 @@ if VJExists == true then
 		"muzzleflash_shotgun" -- Shotgun
 	})
 
+	function MW_DEV_GetSoundsInDirectory(dir,keyword,incl)
+		local tbl = {}
+		local dir = dir or "vj_fallout/human/femaleadult01/"
+		local keyword = keyword or "alertidle"
+		if istable(keyword) then
+			for _,file in pairs(file.Find("sound/" .. dir .. "*","GAME")) do
+				for _,v in pairs(keyword) do
+					if string.find(file,v) then
+						if incl && !string.find(file,incl) then continue end
+						if v == "death" && string.find(file,"deathresponse") then continue end
+						table.insert(tbl,dir .. file)
+					end
+				end
+			end
+		else
+			for _,file in pairs(file.Find("sound/" .. dir .. "*","GAME")) do
+				if string.find(file,keyword) then
+					if incl && !string.find(file,incl) then continue end
+					if keyword == "death" && string.find(file,"deathresponse") then continue end
+					table.insert(tbl,dir .. file)
+				end
+			end
+		end
+		-- for _,v in pairs(tbl) do
+		-- 	print('"' .. v .. '",')
+		-- end
+		return tbl
+	end
+
+	function MW_DEV_MimicTables(dir,requested,incl,useENT)
+		local sounds = MW_DEV_SetTables(dir,incl)
+		if requested then
+			for i,v in pairs(sounds[requested]) do
+				print('"' .. v .. '",')
+			end
+		else
+			print("[Writing Sound Tables]")
+			for name,tbl in pairs(sounds) do
+				if #tbl == 0 then
+					print((useENT && 'ENT' or 'self') ..'.SoundTbl_' .. name .. ' = {}')
+					continue
+				end
+				print((useENT && 'ENT' or 'self') ..'.SoundTbl_' .. name .. ' = {')
+				for i,v in pairs(tbl) do
+					print('	"' .. v .. '",')
+				end
+				print('}')
+			end
+			print("[Finished Writing Sound Tables]")
+		end
+	end
+
+	function MW_DEV_SetTables(dir,incl)
+		local foundData = {}
+		local tbl = {
+			["IdleDialogue"] = {},
+			["IdleDialogueAnswer"] = {},
+			["Idle"] = {},
+			["FollowPlayer"] = {},
+			["UnFollowPlayer"] = {},
+			["Investigate"] = {},
+			["OnPlayerSight"] = {},
+			["Suppressing"] = {},
+			["Alert"] = {},
+			["OnGrenadeSight"] = {},
+			["GrenadeAttack"] = {},
+			["OnKilledEnemy"] = {},
+			["DamageByPlayer"] = {},
+			["CombatIdle"] = {},
+			["Pain"] = {},
+			["Death"] = {},
+		}
+		dir = dir or "cpthazama/mw/npc/delta/"
+		for name,stored in pairs(tbl) do
+			local keyword = name
+			if name == "Idle" then
+				keyword = "idle"
+			elseif name == "FollowPlayer" then
+				keyword = "follow"
+			elseif name == "UnFollowPlayer" then
+				keyword = "unfollow"
+			elseif name == "Investigate" then
+				keyword = "hear"
+			elseif name == "OnPlayerSight" then
+				keyword = "player"
+			elseif name == "Suppressing" then
+				keyword = "suppressing"
+			elseif name == "CombatIdle" then
+				keyword = "attack"
+			elseif name == "Alert" then
+				keyword = {"contact","alert"}
+			elseif name == "OnGrenadeSight" then
+				keyword = "grenade"
+			elseif name == "GrenadeAttack" then
+				keyword = "throw"
+			elseif name == "OnKilledEnemy" then
+				keyword = "kill"
+			elseif name == "DamageByPlayer" then
+				keyword = "friendly"
+			elseif name == "Pain" then
+				keyword = "pain"
+			elseif name == "Death" then
+				keyword = "death"
+			end
+			local foundFiles = MW_DEV_GetSoundsInDirectory(dir,keyword,incl) or {}
+			foundData[name] = foundFiles
+		end
+		return foundData
+	end
+
 -- !!!!!! DON'T TOUCH ANYTHING BELOW THIS !!!!!! -------------------------------------------------------------------------------------------------------------------------
 	AddCSLuaFile(AutorunFile)
 	VJ.AddAddonProperty(AddonName,AddonType)
