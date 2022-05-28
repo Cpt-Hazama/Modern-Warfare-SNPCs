@@ -31,12 +31,12 @@ ENT.Loadouts = {
 		Primary = {
 			"weapon_vj_mw_pecheneg"
 		},
-		Secondary = {
-			"weapon_vj_mw_ak47",
-			"weapon_vj_mw_striker",
-			"weapon_vj_mw_mp412",
-			"weapon_vj_mw_44_magnum"
-		},
+		-- Secondary = {
+		-- 	"weapon_vj_mw_ak47",
+		-- 	"weapon_vj_mw_striker",
+		-- 	"weapon_vj_mw_mp412",
+		-- 	"weapon_vj_mw_44_magnum"
+		-- },
 	}
 }
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -184,11 +184,9 @@ function ENT:CustomOnSetupWeaponHoldTypeAnims(hType)
 	return false
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnThink_AIEnabled()
+function ENT:OnThink(ent,dist)
 	if IsValid(self.VJ_TheController) then return end
-	local ent = self:GetEnemy()
 	if IsValid(ent) && self.LastEnemyVisible then
-		local dist = self.NearestPointToEnemyDistance
 		if dist > (self.Weapon_FiringDistanceFar *0.135) && CurTime() > (self.PauseChargeT or 0) then
 			-- self.MoveRandomlyWhenShooting = false
 			self:SetLastPosition(ent:GetPos())

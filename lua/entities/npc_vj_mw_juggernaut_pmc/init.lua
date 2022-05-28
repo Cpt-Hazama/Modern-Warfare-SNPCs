@@ -155,12 +155,12 @@ function ENT:OnInit()
 				"weapon_vj_mw_sa80",
 				"weapon_vj_mw_mk46"
 			},
-			Secondary = {
-				"weapon_vj_mw_m4a1",
-				"weapon_vj_mw_spas12",
-				"weapon_vj_mw_usp45",
-				"weapon_vj_mw_desert_eagle"
-			},
+			-- Secondary = {
+			-- 	"weapon_vj_mw_m4a1",
+			-- 	"weapon_vj_mw_spas12",
+			-- 	"weapon_vj_mw_usp45",
+			-- 	"weapon_vj_mw_desert_eagle"
+			-- },
 		}
 	}
 	self:GiveWeapons(VJ_MW_LOADOUT_LMG)

@@ -151,11 +151,11 @@ function ENT:OnInit()
 				"weapon_vj_mw_m60e4",
 				"weapon_vj_mw_mk46"
 			},
-			Secondary = {
-				"weapon_vj_mw_spas12",
-				"weapon_vj_mw_44_magnum",
-				"weapon_vj_mw_desert_eagle"
-			},
+			-- Secondary = {
+			-- 	"weapon_vj_mw_spas12",
+			-- 	"weapon_vj_mw_44_magnum",
+			-- 	"weapon_vj_mw_desert_eagle"
+			-- },
 		}
 	}
 	self:GiveWeapons(VJ_MW_LOADOUT_LMG)

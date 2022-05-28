@@ -62,6 +62,7 @@ function ENT:CustomOnInitialize()
 		self:OnInit()
 	end
 
+	self.NextWeaponSwitchT = CurTime() +math.Rand(2,4)
 	-- self.ForceFireWeapon = false
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -100,8 +101,34 @@ function ENT:GiveWeapons(loadID)
 		return
 	end
 	local loadout = self.Loadouts[loadID]
-	self.Secondary = self:Give(VJ_PICK(loadout.Secondary))
+	local secondary = VJ_PICK(loadout.Secondary)
+	self.Secondary = secondary != false && self:Give(secondary) or nil
 	self.Primary = self:Give(VJ_PICK(loadout.Primary))
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:CustomOnThink_AIEnabled()
+	local ent = self:GetEnemy()
+	local dist = self.NearestPointToEnemyDistance
+	if IsValid(ent) then
+		if !IsValid(self.Primary) or !IsValid(self.Secondary) then return end
+		local wep = self:GetActiveWeapon()
+		if self.WeaponInventoryStatus == VJ_WEP_INVENTORY_MELEE then return end
+		local selectType = false
+		if dist <= 325 then
+			selectType = 2
+		else
+			selectType = 1
+		end
+
+		if selectType != false && !self:IsBusy() && CurTime() > self.NextWeaponSwitchT && math.random(1,wep:Clip1() > 0 && (wep:Clip1() <= wep:GetMaxClip1() *0.25) && 1 or (selectType == 1 && 20 or 500)) == 1 then
+			self:DoChangeWeapon(selectType == 1 && self.Primary or self.Secondary,true)
+			wep = self:GetActiveWeapon()
+			self.NextWeaponSwitchT = CurTime() + math.Rand(6,math.Round(math.Clamp(wep:Clip1() *0.5,1,wep:Clip1())))
+		end
+	end
+	if self.OnThink then
+		self:OnThink(ent,dist)
+	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnGrenadeAttack_OnThrow(grEnt)
@@ -243,8 +270,6 @@ ENT.FootSteps = {
 	}
 }
 --
-
----------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnFootStepSound()
 	if !self:IsOnGround() then return end
 	local tr = util.TraceLine({
